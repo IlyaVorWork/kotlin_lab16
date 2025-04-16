@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph" app:startDestination="@id/introFragment">
+
+    <fragment android:id="@+id/introFragment" android:name="com.ilyavorontsov.lab16.StoryFragment" tools:layout="@layout/fragment_story">
+        <action android:id="@+id/action_introFragment_to_hareFragment" app:destination="@id/hareFragment"/>
+        <argument android:name="picture" app:argType="reference" android:defaultValue="@drawable/elders"/>
+        <argument android:name="text" app:argType="reference" android:defaultValue="@string/introText"/>
+        <argument android:name="backBtnText" app:argType="reference" android:defaultValue="@string/stay"/>
+        <argument android:name="contBtnText" app:argType="reference" android:defaultValue="@string/runAway"/>
+        <argument android:name="nextLink" app:argType="reference" android:defaultValue="@id/action_introFragment_to_hareFragment" />
+    </fragment>
+    <fragment android:id="@+id/hareFragment"  android:name="com.ilyavorontsov.lab16.StoryFragment" tools:layout="@layout/fragment_story">
+        <action android:id="@+id/action_hareFragment_to_wolfFragment" app:destination="@id/wolfFragment"/>
+        <argument android:name="picture" app:argType="reference" android:defaultValue="@drawable/hare"/>
+        <argument android:name="text" app:argType="reference" android:defaultValue="@string/hareText"/>
+        <argument android:name="backBtnText" app:argType="reference" android:defaultValue="@string/stay"/>
+        <argument android:name="contBtnText" app:argType="reference" android:defaultValue="@string/runAway"/>
+        <argument android:name="nextLink" app:argType="reference" android:defaultValue="@id/action_hareFragment_to_wolfFragment" />
+    </fragment>
+    <fragment android:id="@+id/wolfFragment" android:name="com.ilyavorontsov.lab16.StoryFragment" tools:layout="@layout/fragment_story">
+        <action android:id="@+id/action_wolfFragment_to_bearFragment" app:destination="@id/bearFragment"/>
+        <argument android:name="picture" app:argType="reference" android:defaultValue="@drawable/wolf"/>
+        <argument android:name="text" app:argType="reference" android:defaultValue="@string/wolfText"/>
+        <argument android:name="backBtnText" app:argType="reference" android:defaultValue="@string/stay"/>
+        <argument android:name="contBtnText" app:argType="reference" android:defaultValue="@string/runAway"/>
+        <argument android:name="nextLink" app:argType="reference" android:defaultValue="@id/action_wolfFragment_to_bearFragment" />
+    </fragment>
+    <fragment android:id="@+id/bearFragment" android:name="com.ilyavorontsov.lab16.StoryFragment" tools:layout="@layout/fragment_story">
+        <action android:id="@+id/action_bearFragment_to_foxFragment" app:destination="@id/foxFragment"/>
+        <argument android:name="picture" app:argType="reference" android:defaultValue="@drawable/bear"/>
+        <argument android:name="text" app:argType="reference" android:defaultValue="@string/bearText"/>
+        <argument android:name="backBtnText" app:argType="reference" android:defaultValue="@string/stay"/>
+        <argument android:name="contBtnText" app:argType="reference" android:defaultValue="@string/runAway"/>
+        <argument android:name="nextLink" app:argType="reference" android:defaultValue="@id/action_bearFragment_to_foxFragment" />
+    </fragment>
+    <fragment android:id="@+id/foxFragment" android:name="com.ilyavorontsov.lab16.StoryFragment" tools:layout="@layout/fragment_story">
+        <action android:id="@+id/action_foxFragment_to_goodEndingFragment" app:destination="@id/goodEndingFragment"/>
+        <argument android:name="picture" app:argType="reference" android:defaultValue="@drawable/fox"/>
+        <argument android:name="text" app:argType="reference" android:defaultValue="@string/foxText"/>
+        <argument android:name="backBtnText" app:argType="reference" android:defaultValue="@string/obey"/>
+        <argument android:name="contBtnText" app:argType="reference" android:defaultValue="@string/runAway"/>
+        <argument android:name="nextLink" app:argType="reference" android:defaultValue="@id/action_foxFragment_to_goodEndingFragment" />
+    </fragment>
+    <fragment android:id="@+id/goodEndingFragment" android:name="com.ilyavorontsov.lab16.EndingFragment" tools:layout="@layout/fragment_story">
+        <action android:id="@+id/action_goodEndingFragment_to_introFragment" app:destination="@id/introFragment"/>
+        <argument android:name="picture" app:argType="reference" android:defaultValue="@drawable/final_good"/>
+        <argument android:name="text" app:argType="reference" android:defaultValue="@string/goodEndingText"/>
+        <argument android:name="btnText" app:argType="reference" android:defaultValue="@string/playAgain"/>
+    </fragment>
+    <fragment android:id="@+id/badEndingFragment" android:name="com.ilyavorontsov.lab16.EndingFragment" tools:layout="@layout/fragment_story">
+        <action android:id="@+id/action_badEndingFragment_to_introFragment" app:destination="@id/introFragment"/>
+        <argument android:name="picture" app:argType="reference" android:defaultValue="@drawable/final_bad"/>
+        <argument android:name="text" app:argType="reference" android:defaultValue="@string/badEndingText"/>
+        <argument android:name="btnText" app:argType="reference" android:defaultValue="@string/tryAgain"/>
+    </fragment>
+</navigation>
